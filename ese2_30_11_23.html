@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #countdown-container {
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+        }
+
+        #background-image {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            transition: opacity 5s ease-in-out;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="countdown-container">
+        <div id="countdown"></div>
+        <img id="background-image" src="download2.jpg" alt="Background Image">
+    </div>
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           
+            var countdownElement = document.getElementById("countdown");
+            var count = 5;
+
+            function updateCountdown() {
+                countdownElement.textContent = count;
+                count--;
+
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    showBackground();
+                }
+            }
+
+            var countdownInterval = setInterval(updateCountdown, 1000);
+
+            
+            var backgroundImage = document.getElementById("background-image");
+
+            function showBackground() {
+                backgroundImage.style.opacity = 1;
+                backgroundImage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+
+</html>
