@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea Articolo</title>
+
+    <style>
+        #articoloContainer {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #articoloContainer.show {
+            display: block;
+        }
+
+        .articolo {
+            background-color: #e6e6e6;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="titoloInput">Titolo</label>
+    <input type="text" id="titoloInput"><br><br>
+
+    <label for="paragrafoInput">Paragrafo:</label>
+    <textarea id="paragrafoInput"></textarea><br><br>
+
+    <button onclick="creaArticolo()" id="creaArticoloBottone">Crea Articolo</button>
+
+    <div id="articoloContainer">
+        <div class="articolo">
+            <h2 id="articoloTitolo"></h2>
+            <p id="articoloParagrafo"></p>
+        </div>
+    </div>
+
+    <script>
+        function creaArticolo() {
+            var titoloContenuto = document.getElementById('titoloInput').value;
+            var paragrafoContenuto = document.getElementById('paragrafoInput').value;
+
+
+            var articoloTitolo = document.getElementById('articoloTitolo');
+            var articoloParagrafo = document.getElementById('articoloParagrafo');
+            articoloTitolo.textContent = titoloContenuto;
+            articoloParagrafo.textContent = paragrafoContenuto;
+            
+
+            var articoloContainer = document.getElementById('articoloContainer');
+            articoloContainer.classList.add('show');
+        }
+    </script>
+
+</body>
+
+</html>
